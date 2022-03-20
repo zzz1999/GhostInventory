@@ -1,0 +1,11 @@
+name: GhostInventory
+version: 1.5.2
+api: ["1.0.0"]
+author: darker
+load: POSTWORLD
+main: cn.dawntribe.ghostinventory.GhostInventory
+
+permissions:
+  ghostinventory.command.invCommand:
+    default: op
+    description: 幽灵背包使用权限,只允许OP使用
