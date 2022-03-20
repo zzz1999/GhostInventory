@@ -21,7 +21,7 @@ import cn.nukkit.utils.TextFormat;
 import java.util.Iterator;
 
 public class GhostCommand extends Command {
-    private static final int MAX_ONLINE_PLAYERS_IN_FORM = 25;
+    private static final int MAXIMUM_ONLINE_PLAYERS_IN_FORM = 25;
 
     public GhostCommand() {
         super("ghostinventory", "幽灵背包命令", "/gi <玩家名字(空格使用&代替)>", new String[]{"gi"});
@@ -42,11 +42,11 @@ public class GhostCommand extends Command {
             Player holder = (Player) sender;
             if (args.length == 0) {
                 // 在线玩家form
-                FormWindowSimple form = new FormWindowSimple("幽灵背包", "请选择需要连接的玩家。\n列出当前在线玩家，最多" + MAX_ONLINE_PLAYERS_IN_FORM + "个。");
+                FormWindowSimple form = new FormWindowSimple("幽灵背包", "请选择需要连接的玩家。\n列出当前在线玩家，最多" + MAXIMUM_ONLINE_PLAYERS_IN_FORM + "个。");
                 Iterator<Player> it = Server.getInstance().getOnlinePlayers().values().iterator();
                 int count = 0;
                 while (it.hasNext()) {
-                    if (MAX_ONLINE_PLAYERS_IN_FORM > count) {
+                    if (MAXIMUM_ONLINE_PLAYERS_IN_FORM > count) {
                         Player player = it.next();
                         form.addButton(new ElementButton((player.isOnline() ? TextFormat.GREEN : TextFormat.GRAY) + player.getName(),
                                 new ElementButtonImageData(ElementButtonImageData.IMAGE_DATA_TYPE_PATH, player.isOp() ? "textures/ui/permissions_op_crown.png" : "textures/ui/permissions_member_star.png"))
